@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        h1{
+            text-align: center;
+            font-family: 'Arial Black';
+            font-size: 3em;
+            margin-bottom: 60px;
+        }
+        
+        #container{
+            padding: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            padding: 20px;
+            display: inline-flex;
+        }
+        button{
+            width: 300px;
+            height: 60px;
+            margin: 15px;
+            border-radius: 10px;
+            font-size: 35px;
+            font-family: 'Arial Black';
+        }
+        #sim{
+            background-color: rgb(106, 238, 106);
+            color: rgb(2, 97, 2);
+            border: none;
+        }
+        #sim:hover{
+            background-color: rgb(40, 136, 40);
+            color: rgb(26, 223, 26);
+            border: none;
+        }
+        #nao{
+            background-color: rgb(238, 63, 63);
+            color: rgb(158, 2, 2);
+            border: none;
+        }
+        #nao:hover{
+            background-color: rgb(173, 17, 17);
+            color: rgb(224, 32, 32);
+            border: none;
+        }
+    </style>
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tem certeza que deseja excluir?</h1>
+    <div id="container">
+        <form action="{{url_for('excluirDespesas')}}" method="POST">
+            <input type="number" name="id" value="{{id}}" hidden>
+            <button type="submit"id="sim">SIM</button>
+        </form>
+        <form action="{{url_for('despesas')}}" method="GET">
+            <button type="submit"id="nao">NÃO</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<form action="{{url_for('lancamentos')}}" method="POST" style="background-color: #AFEEEE; margin: auto;">
+    <div class="row" style="width: 100%; margin: auto;">
+      
+      <div class="col-md-2">
+        <!--CAMPO DATA-->
+        <div class="form-group">
+
+          <label for="dateInput" class="row-md-11 row-form-label label">Data</label>
+          <div class="row-md-11">
+            <style>
+              input[type="date"]:hover::-webkit-calendar-picker-indicator {
+                background-color: #00c3ff;
+                border-radius: 20px;
+              }
+            </style>
+            <input type="date" class="form-control label" id="dateInput" name="data" required>
+            <script>
+              let today = new Date().toISOString().substring(0,10);
+              document.getElementById("dateInput").value = today;
+            </script>
+          </div>
+
+        </div>
+        <!--FIM CAMPO DATA-->
+      </div>
+
+      <div class="col-md-2" style="background-color: #AFEEEE;">
+        <!--CAMPO CODIGO-->
+        <div class="form-group">
+          <label for="codigo" class="row-md-11 row-form-label label">Código</label>
+          <div class="row-md-11">
+            <select name="codigo" class="form-control form-select label select2" required>
+              <option value="" selected>select...</option>
+              
+              <optgroup label="1 DESPESAS COM FUNCIONARIOS">
+                <option value="1">1 - FOLHA DE PAGAMENTO</option>
+                <option value="11">11 - FOLHA ADIANTAMENTO </option>
+                <option value="12">12 - FOLHA VALE </option>
+                <option value="13">13 - VALE TRANSPORTE</option>
+                <option value="14">14 - FOLHA RESCISÕES</option>
+                <option value="15">15 - FOLHA FÉRIAS</option>
+                <option value="16">16 - FOLHA 13º SALÁRIO  </option>
+                <option value="17">17 - FOLHA EXTRAS DIVERSAS</option>
+                <option value="18">18 - PONTUAÇÃO 10% </option>
+                <option value="19">19 - PONTUAÇÃO 20%  </option>
+              </optgroup>
+
+              <optgroup label="2 - INSUMO">
+                <option value="21">21 - INSUMO DIVERSO</option>
+                <option value="22">22 - INUMO SOBREMESA</option>
+                <option value="23">23 - INSUMO CAFÉ</option>
+                <option value="24">24 - INSUMO PÃO DE ALHO</option>
+                <option value="25">25 - INSUMO HORTIFRUTI</option>
+                <option value="26">26 - INSUMO LATICÍNIO/POLPA</option>
+                <option value="27">27 - INSUMO CARNES</option>
+                <option value="28">28 - INSUMO FRANGO</option>
+                <option value="29">29 - INSUMO PESCADO</option>
+                <option value="30">30 - INSUMO CERVEJA/REFRIGERANTE</option>
+                <option value="31">31 - INSUMO ÁGUA</option>
+                <option value="32">32 - INSUMO BEBIDA QUENTE</option>
+                <option value="33">33 - EQUIPAMENTO</option>
+                <option value="34">34 - UNIFORME</option>
+                <option value="35">35 - LAVANDERIA</option>
+                <option value="36">36 - MANUTENCAO EQUIPAMENTOS/PRÉDIO</option>
+              </optgroup>
+
+              <optgroup label="4 - GRÁFICA/COMANDA/CARDÁPIO/PAPELARIA/ESCRITÓRIO">
+                <option value="41">41 - COMANDA/CARDÁPIO/ESCRITÓRIO/PAPELARIA</option>
+                <option value="42">42 - PROMOÇÃO/DIVULGAÇÃO</option>
+              </optgroup>
+
+              <optgroup label="5 - ALUGUEIS / IPTU">
+                <option value="51">51 - ALUGUEL</option>
+                <option value="52">52 - IPTU</option>
+              </optgroup>
+
+              <optgroup label="6 - SABESP/ENEL/GÁS/ INTERNET/ CARVÃO">
+                <option value="61">61 - SABESP</option>
+                <option value="62">62 - ENEL</option>
+                <option value="63">63 - GÁS</option>
+                <option value="64">64 - INTERNET</option>
+                <option value="65">65 - CARVÃO</option>
+                <option value="66">66 - COMBUSTIVEL</option>
+              </optgroup>
+
+              <optgroup label="7 - IMPOSTOS">
+                <option value="71">71 - IMPOSTO ICMS</option>
+                <option value="72">72 - IMPOSTO GPS</option>
+                <option value="73">73 - IMPOSTO SINDICATO </option>
+                <option value="74">74 - IMPOSTO DARF</option>
+                <option value="75">75 - IMPOSTO SIMPLES</option>
+                <option value="76">76 - IMPOSTO DAMSP</option>
+                <option value="77">77 - IMPOSTO INSS</option>
+                <option value="78">78 - IMPOSTO FGTS</option>
+                <option value="79">79 - IMPOSTO OUTROS</option>
+              </optgroup>
+
+              <optgroup label="8 - CONTRATOS DIVERSOS">
+                <option value="81">81 - CONTRATO DEDETIZÇÃO</option>
+                <option value="82">82 - CONTRATO  CONTABILIDADE</option>
+                <option value="83">83 - CONTRATO WYSE/DELTA</option>
+                <option value="84">84 - CONTRATO MED.OCUP.</option>
+                <option value="85">85 - CONTRATO MULTILIXO</option>
+                <option value="86">86 - CONTRATO  EMPREST. BRADESCO</option>
+                <option value="87">87 - CONTRATO NUTRICIONISTA</option>
+                <option value="88">88 - CONTRATO OUTROS</option>
+                <option value="89">89 - CONTRATO PROLABORE</option>
+              </optgroup>
+
+              <optgroup label="9 -  DESPESAS">
+                <option value="91">91 - DESPESA BANCÁRIA</option>
+                <option value="92">92 - JUROS</option>
+                <option value="93">93 - DESPESAS DIVERSAS</option>
+                <option value="94">94 - LIMPEZA</option>
+                <option value="95">95 - DESCARTAVEL</option>
+                <option value="96">96 - EMBALAGEM </option>
+                <option value="97">97 - TAXA CATÃO</option>
+              </optgroup>
+            </select>
+            
+          </div>
+        </div>
+        <!--FIM CAMPO CODIGO-->
+      </div>
+
+      <div class="col-md-2" style="background-color: #AFEEEE;">
+        <!--CAMPO DESCRIÇÃO-->
+        <div class="form-group">
+          <label for="descricao" class="row-md-11 row-form-label label">Descrição</label>
+          <div class="row-md-11">
+            <input type="text" class="form-control label" id="descricao" name="descricao" required>
+          </div>
+        </div>
+        <!--FIM CAMPO DESCRIÇÃO-->
+      </div>
+
+      <div class="col-md-2" style="background-color: #AFEEEE;">
+        <!--CAMPOS DE TIPO-->
+        <div class="form-group">
+          <label class="row-md-10 row-form-label label">Tipo</label>
+          <div class="row-md-10">
+            <select name="tipo" class="form-control form-select label" required>
+              <option value="" selected>select...</option>
+              <option value="entrada">Entrada</option>
+              <option value="saida">Saída</option>
+            </select>
+          </div>
+        </div>
+        <!--FIM CAMPOS DE TIPO-->
+      </div>
+
+      <div class="col-md-2" style="background-color: #AFEEEE;">
+        <!--CAMPO VALOR-->
+        <div class="form-group">
+          <label for="codigo" class="row-md-11 row-form-label label">Valor R$</label>
+          <div class="row-md-11">
+            <input type="number" step="0.01" class="form-control label" id="valor" name="valor" required>
+          </div>
+        </div>
+        <!--FIM CAMPO VALOR-->
+      </div>
+
+      <div class="col-md-1.9" style="background-color: #AFEEEE;">
+        <button type="submit" class="btn btn-success mt-4 text-center">Salvar</button>
+        <button type="reset" class="btn btn-warning mt-4 text-center" id="reset">limpar</button>
+      </div>
+
+    </div>
+  </form>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/img/favicon-16x16.png" type="image/png">
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
+    <!--SELECT2-->
+    <link rel="stylesheet" href="../static/css/select2.css"  />
+    <script src="../static/scripts/select2.js"></script>
+    
+    <title>RELATORIO</title>
+</head>
+<body style="overflow-x: hidden; overflow-y: visible; ">
+    <ul class="nav nav-tabs bg-primary sticky-top" id="nav">
+        <li class="nav-item">
+          <a class="nav-link text-warning" href="{{url_for('home')}}">VOLTAR</a>   
+        </li>
+        <li class="nav-item ml-auto">
+          <form class="nav-link" method="post" action="{{url_for('filter')}}">
+          <!--CAMPO CODIGO-->
+          <label class="text-light" for="codigo">Código:</label>
+          <select name="codigo" id="codigo" class="select2" required>
+            <option value="" selected>select...</option>
+            
+            <optgroup label="1 DESPESAS COM FUNCIONARIOS">
+              <option value="1">1 - FOLHA DE PAGAMENTO</option>
+              <option value="11">11 - FOLHA ADIANTAMENTO </option>
+              <option value="12">12 - FOLHA VALE </option>
+              <option value="13">13 - VALE TRANSPORTE</option>
+              <option value="14">14 - FOLHA RESCISÕES</option>
+              <option value="15">15 - FOLHA FÉRIAS</option>
+              <option value="16">16 - FOLHA 13º SALÁRIO  </option>
+              <option value="17">17 - FOLHA EXTRAS DIVERSAS</option>
+              <option value="18">18 - PONTUAÇÃO 10% </option>
+              <option value="19">19 - PONTUAÇÃO 20%  </option>
+            </optgroup>
+
+            <optgroup label="2 - INSUMO">
+              <option value="21">21 - INSUMO DIVERSO</option>
+              <option value="22">22 - INUMO SOBREMESA</option>
+              <option value="23">23 - INSUMO CAFÉ</option>
+              <option value="24">24 - INSUMO PÃO DE ALHO</option>
+              <option value="25">25 - INSUMO HORTIFRUTI</option>
+              <option value="26">26 - INSUMO LATICÍNIO/POLPA</option>
+              <option value="27">27 - INSUMO CARNES</option>
+              <option value="28">28 - INSUMO FRANGO</option>
+              <option value="29">29 - INSUMO PESCADO</option>
+              <option value="30">30 - INSUMO CERVEJA/REFRIGERANTE</option>
+              <option value="31">31 - INSUMO ÁGUA</option>
+              <option value="32">32 - INSUMO BEBIDA QUENTE</option>
+              <option value="33">33 - EQUIPAMENTO</option>
+              <option value="34">34 - UNIFORME</option>
+              <option value="35">35 - LAVANDERIA</option>
+              <option value="36">36 - MANUTENCAO EQUIPAMENTOS/PRÉDIO</option>
+            </optgroup>
+
+            <optgroup label="4 - GRÁFICA/COMANDA/CARDÁPIO/PAPELARIA/ESCRITÓRIO">
+              <option value="41">41 - COMANDA/CARDÁPIO/ESCRITÓRIO/PAPELARIA</option>
+              <option value="42">42 - PROMOÇÃO/DIVULGAÇÃO</option>
+            </optgroup>
+
+            <optgroup label="5 - ALUGUEIS / IPTU">
+              <option value="51">51 - ALUGUEL</option>
+              <option value="52">52 - IPTU</option>
+            </optgroup>
+
+            <optgroup label="6 - SABESP/ENEL/GÁS/ INTERNET/ CARVÃO">
+              <option value="61">61 - SABESP</option>
+              <option value="62">62 - ENEL</option>
+              <option value="63">63 - GÁS</option>
+              <option value="64">64 - INTERNET</option>
+              <option value="65">65 - CARVÃO</option>
+              <option value="66">66 - COMBUSTIVEL</option>
+            </optgroup>
+
+            <optgroup label="7 - IMPOSTOS">
+              <option value="71">71 - IMPOSTO ICMS</option>
+              <option value="72">72 - IMPOSTO GPS</option>
+              <option value="73">73 - IMPOSTO SINDICATO </option>
+              <option value="74">74 - IMPOSTO DARF</option>
+              <option value="75">75 - IMPOSTO SIMPLES</option>
+              <option value="76">76 - IMPOSTO DAMSP</option>
+              <option value="77">77 - IMPOSTO INSS</option>
+              <option value="78">78 - IMPOSTO FGTS</option>
+              <option value="79">79 - IMPOSTO OUTROS</option>
+            </optgroup>
+
+            <optgroup label="8 - CONTRATOS DIVERSOS">
+              <option value="81">81 - CONTRATO DEDETIZÇÃO</option>
+              <option value="82">82 - CONTRATO  CONTABILIDADE</option>
+              <option value="83">83 - CONTRATO WYSE/DELTA</option>
+              <option value="84">84 - CONTRATO MED.OCUP.</option>
+              <option value="85">85 - CONTRATO MULTILIXO</option>
+              <option value="86">86 - CONTRATO  EMPREST. BRADESCO</option>
+              <option value="87">87 - CONTRATO NUTRICIONISTA</option>
+              <option value="88">88 - CONTRATO OUTROS</option>
+              <option value="89">89 - CONTRATO PROLABORE</option>
+            </optgroup>
+
+            <optgroup label="9 -  DESPESAS">
+              <option value="91">91 - DESPESA BANCÁRIA</option>
+              <option value="92">92 - JUROS</option>
+              <option value="93">93 - DESPESAS DIVERSAS</option>
+              <option value="94">94 - LIMPEZA</option>
+              <option value="95">95 - DESCARTAVEL</option>
+              <option value="96">96 - EMBALAGEM </option>
+              <option value="97">97 - TAXA CATÃO</option>
+            </optgroup>
+          </select>
+    <!--FIM CAMPO CODIGO-->
+    <label class="text-light ml-3" for="forma">Forma de Pagamento:</label>
+    <select name="forma" id="forma" class="select_form_pagamento">
+      <option value="" selected>select...</option>
+      <option value="Dinheiro">Dinheiro</option>
+      <option value="Débito">Débito</option>
+      <option value="Crédito">Crédito</option>
+    </select>
+    <button class="btn btn-success ml-5" type="submit">Perquisar</button>
+      </form>
+    </li>
+    </ul>
+
+    <div class="container-md" style="margin-top: 5px;">
+      <div class="row">
+        <div class="col-md-11" style="margin: auto;">
+          <table class="table table-hover table-bordered table-sm"  id="table">
+            <thead class="text-center table-primary">
+              <tr>
+                <th>Data</th>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Forma de pagamento</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+                <th>Usuario</th>
+              </tr>
+            </thead>
+            {% for linha in dados %}
+              <tbody>
+                <style>
+                  .center{
+                    text-align: center;
+                  }
+                </style>
+                <tr>
+                  <td>{{linha["data"].strftime('%d/%m/%Y')}}</td>
+                  <td>{{linha["nome"]}}</td>
+                  <td>{{linha["descricao"]}}</td>
+                  <td>{{linha["formpgm"]}}</td>
+                  {% if linha["tipo"] == "entrada" %}
+                  <td class="text-success"><strong>{{linha["tipo"]}}</strong></td>
+                  {% else %}
+                  <td class="text-danger"><strong>{{linha["tipo"]}}</strong></td>
+                  {% endif %}
+                  <td>R$ {{ '%0.2f'|format(linha["valor"]) | replace(".", ",")}}</td>
+                  <td>{{linha["usuario"]}}</td>
+                  
+                </tr>
+                {% endfor %}
+                <tr style="background-color: rgb(205, 207, 209); font-weight: 1000; text-align: center;">
+                  <td>TOTAIS</td>
+                  <td>QTD de registros = {{dados|length}}</td>
+                  <td>SOMA (ENTRADAS - SAÍDAS)</td>
+                  <td colspan="4">{{total}}</td>
+                </tr>
+              </tbody>
+            
+          </table>
+        </div>
+      </div>
+      <div class="row" style="margin: auto;">
+        <div class="col-md-2" style="margin: auto; text-align: center;">
+          <button class="btn btn-lg btn-success text-center mb-5" onclick="imprimir()" id="button">IMPRIMIR</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="../static/scripts/select2.js"></script>
+
+    <script>
+      function imprimir(){
+        document.getElementById("nav").hidden = true
+        document.getElementById("button").hidden = true
+        window.print()
+        document.getElementById("nav").hidden = false
+        document.getElementById("button").hidden = false
+      }
+    </script>
+     <script>
+      $(document).ready(function() {
+          $('.select2').select2();
+      });
+
+      $(function(){
+        $("#reset").click(function(){
+          $(".select2").select2('val', 0);
+        });
+      });
+
+    </script>
+</body>
+</html>
