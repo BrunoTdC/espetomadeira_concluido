@@ -119,7 +119,7 @@ def filter():
                     on l.id_user = u.id
                     join codigos as c
                     on l.codigo = c.codigo
-                 where l.codigo = '{codigo}' or formpgm = '{forma}'""")
+                 where l.codigo = '{codigo}' and formpgm = '{forma}'""")
         
 
         filter1 = cursor.fetchall()
