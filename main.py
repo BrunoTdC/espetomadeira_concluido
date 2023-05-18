@@ -8,7 +8,7 @@ import lancamentosController, bancoController, despesasController, homeControlle
 
 app = Flask(__name__)
 app.secret_key = "super_secret_key"
-
+app.config['PERMANENT_SESSION_LIFETIME'] = 1800
 cria_tabelas()
 
 # TELA DE LOGIN -------------------------------------------------------------------------------------------
